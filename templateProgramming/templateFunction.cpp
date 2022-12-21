@@ -11,6 +11,9 @@ int main(){
     int b=3;
     string c="hello";
     string d="world";
+    //this <int> means all the T in the function add will be replaced by int
+    //the template generate a version of function with specific type
+    //this is called specialization
     cout<<"the sum of a and b is: "<<add<int>(a,b)<<endl;
     cout<<"the sum of c and d is: "<<add(c,d)<<endl;
     return 0;
