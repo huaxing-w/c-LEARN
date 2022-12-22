@@ -11,16 +11,23 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
  
-int main(int argc,char *argv[])
-{
-  if (argc!=2)
-  {
+int main(int argc,char *argv[]){
+  if (argc!=2){
     printf("Using:./server port\nExample:./server 5005\n\n"); return -1;
   }
  
   // 第1步：创建服务端的socket。
+
+  //这里最多可以有多少个socket呢？
+  //单个进程打开的fd最多是1024
+  //这个在linux下可以调试 open file
+  //高性能并发的时候可能会出现这个问题
   int listenfd;
   if ( (listenfd = socket(AF_INET,SOCK_STREAM,0))==-1) { perror("socket"); return -1; }
+
+  //byte order (big and little endian byte order)
+ 
+
  
   // 第2步：把服务端用于通信的地址和端口绑定到socket上。
   struct sockaddr_in servaddr;    // 服务端地址信息的数据结构。
