@@ -1,5 +1,9 @@
-#include "threadpool.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
+#include <string.h>
+#include "threadpool.h"
+#include <unistd.h>
 
 const int NUMBER=2;
 
@@ -50,6 +54,7 @@ struct ThreadPool{
   pthread_cond_t notFull;//check if full
   pthread_cond_t notEmpty;//check if empty
 };
+
 
 ThreadPool* threadPoolCreate(int min, int max, int queueSize){
   ThreadPool* pool = (ThreadPool*)malloc(sizeof(ThreadPool));
