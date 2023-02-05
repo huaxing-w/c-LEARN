@@ -6,6 +6,8 @@ using namespace std;
 //the no-parameter constructor and copy constructor could initial a new object
 // class TaskQueue{
 // public:
+//     static TaskQueue* getInstance();
+//     void print();
 // private:
 //     //c++ 11 new feature, we did not change the behavior, just change it to private
 //     TaskQueue()=default;
@@ -27,10 +29,15 @@ public:
     void print();
 
 private:
-    TaskQueue()=default;
+    TaskQueue();
     //we have to initial this static in order to use it.
     static TaskQueue* m_taskQ;
     
+};
+
+TaskQueue::TaskQueue(){
+    cout<<"I am creating a singleton right now!"<<endl;
+
 };
 
 TaskQueue* TaskQueue::getInstance(){
